@@ -12,12 +12,12 @@ The page size (N) is configured in a resource bundle (configuration file).
 The system displays N number of bestsellers, in each category of books present in the store. 
 
 <table>
-<th>
-<td>Title</td>
-<td>Category</td>
-<td>Author</td>
-<td>Price</td>
-</th>
+<tr>
+<th>Title</td>
+<th>Category</td>
+<th>Author</td>
+<th>Price</td>
+</tr>
 <tr>
 <td>Effective Java</td>
 <td>Non-fiction</td>

@@ -1,4 +1,9 @@
 # bookstoremanager
+Tech Stack:
+-Spring Boot
+- Jersey REST
+-Hibernate
+-MariaDB
 Description:
 An application to maintain information for a book store. The application will be used by the store manager. The details of books and sales are maintained in the application database. The user can record the sale of a book, and view bestsellers in the store. The home page contains the following links:
 - Record a Sale

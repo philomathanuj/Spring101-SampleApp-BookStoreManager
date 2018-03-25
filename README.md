@@ -10,8 +10,30 @@ Use Case 2: View Bestsellers
 The overall top N bestselling books in the store is displayed in the following format in the decreasing order of the 'Copies Sold' column.
 The page size (N) is configured in a resource bundle (configuration file). 
 The system displays N number of bestsellers, in each category of books present in the store. 
-Title             Category          Author          Price
-Effective Java    Non-fiction       Joshua Bloch    600
-Java Concurrency  Non-fiction       Joshua Bloch    650
-The Fountainhead  Fiction           Ayn Rand        450
 
+<table>
+<th>
+<td>Title</td>
+<td>Category</td>
+<td>Author</td>
+<td>Price</td>
+</th>
+<tr>
+<td>Effective Java</td>
+<td>Non-fiction</td>
+<td>Joshua Bloch</td>
+<td>600</td>
+</tr>
+<tr>
+<td>Java Concurrency</td>
+<td>Non-fiction</td>
+<td>Joshua Bloch</td>
+<td>650</td>
+</tr>
+<tr>
+<td>The Fountainhead</td>
+<td>Fiction</td>
+<td>Ayn Rand</td>
+<td>450</td>
+</tr>
+</table>

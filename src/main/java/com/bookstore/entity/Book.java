@@ -28,8 +28,8 @@ public class Book {
 	private String category;
 	@Column(name = "copies_sold")
 	private int copiesSold;
-	@Column(name = "copies_purchased")
-	private int copiesPurchased;
+	@Column(name = "copies_left")
+	private int copiesLeft;
 	
 	
 	public Integer getBookId() {
@@ -75,11 +75,13 @@ public class Book {
 	public void setCopiesSold(int copiesSold) {
 		this.copiesSold = copiesSold;
 	}
-	public int getCopiesPurchased() {
-		return copiesPurchased;
+	
+	
+	public int getCopiesLeft() {
+		return copiesLeft;
 	}
-	public void setCopiesPurchased(int copiesPurchased) {
-		this.copiesPurchased = copiesPurchased;
+	public void setCopiesLeft(int copiesLeft) {
+		this.copiesLeft = copiesLeft;
 	}
 	@Override
 	public int hashCode() {

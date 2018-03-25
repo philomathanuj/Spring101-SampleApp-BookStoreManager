@@ -15,14 +15,14 @@ import com.bookstore.exception.ServiceException;
 import com.bookstore.service.BookStoreService;
 
 @Service
-@Path("/expense")
+@Path("/bookstore")
 public class BookStoreResource{
 	
 	@Inject
 	private BookStoreService bookStoreService;
 	
 	@POST
-	@Path("/item/save")
+	@Path("/add")
 	@Produces("application/json")
     @Consumes("application/json")
 	public Response saveItemDetails(@RequestBody Object lineItem){

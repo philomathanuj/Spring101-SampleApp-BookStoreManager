@@ -1,6 +1,6 @@
 package com.bookstore.exception;
 
-public class ServiceException extends Exception {
+public class ServiceException extends DaoException {
 
 	/**
 	 * 

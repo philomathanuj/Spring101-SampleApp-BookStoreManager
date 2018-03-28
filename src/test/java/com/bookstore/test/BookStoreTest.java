@@ -1,5 +1,7 @@
 package com.bookstore.test;
 
+import javax.ws.rs.core.Response;
+
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,6 +29,18 @@ public void testAddPurchase(){
 	book.setPrice(300);
 	book.setTitle("The Kite Runner");
 	bookStoreResouce.addPurchase(book);
+}
+
+@Test
+public void testViewPurchase(){
+	Response response = bookStoreResouce.viewPurchase(1);
+	System.out.println(response.getEntity().toString());
+}
+
+@Test
+public void testViewAllPurchases(){
+	Response response = bookStoreResouce.viewAllPurchases();
+	System.out.println(response.getEntity().toString());
 }
 
 }

@@ -1,5 +1,7 @@
 package com.bookstore.dao;
 
+import java.util.List;
+
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -30,6 +32,37 @@ public class BookStoreDao {
 		}finally{
 			session.close();
 		}
+	}
+	
+	public Book getBookByID(Integer bookID) throws DaoException{
+		Session session = null;
+		Book book = null;
+		try {
+			session = sessionFactory.openSession();
+			book=session.get(Book.class,bookID);
+		} catch (HibernateException e) {
+			throw new DaoException("Exception Occurred while saving book to the database",e);
+		}finally{
+			session.close();
+		}
+		
+		return book;
+	}
+	
+	@SuppressWarnings("unchecked")
+	public List<Book> getAllBooks() throws DaoException{
+		Session session = null;
+		List<Book> books= null;
+		try {
+			session = sessionFactory.openSession();
+			books=session.createQuery("from Book b").list();
+		} catch (HibernateException e) {
+			throw new DaoException("Exception Occurred while saving book to the database",e);
+		}finally{
+			session.close();
+		}
+		
+		return books;
 	}
 
 }

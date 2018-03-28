@@ -1,8 +1,12 @@
 package com.bookstore.rest;
 
+import java.util.List;
+
 import javax.ws.rs.Consumes;
+import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
+import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.Response;
 
@@ -23,7 +27,7 @@ public class BookStoreResource{
 	private BookStoreService bookStoreService;
 	
 	@POST
-	@Path("/add")
+	@Path("purchase/add")
 	@Produces("application/json")
     @Consumes("application/json")
 	public Response addPurchase(@RequestBody Book book){
@@ -36,17 +40,30 @@ public class BookStoreResource{
 	}
 	
 	
-/*	@GET
-	@Path("/item/{id}")
+	@GET
+	@Path("/purchase/view/{id}")
 	@Produces("application/json")
-	public Response getItemDetails(@PathParam(value = "2") int id){
+	public Response viewPurchase(@PathParam(value = "1") int id){
+		Book book = null;
 		try {
-			this.smartPAService.viewItems(id);
+			book = this.bookStoreService.getBookByID(id);
 		} catch (ServiceException e) {
 			return RestResponse.notOk("Failure to save item",e.getMessage());
 		}
-		return RestResponse.ok("Item has been added successfully",1);
-		
+		return RestResponse.ok("data",book,1);	
 	}
-*/
+	
+	@GET
+	@Path("/purchase/all")
+	@Produces("application/json")
+	public Response viewAllPurchases(){
+		List<Book> books = null;
+		try {
+			books = this.bookStoreService.getAllBooks();
+		} catch (ServiceException e) {
+			return RestResponse.notOk("Failure to save item",e.getMessage());
+		}
+		return RestResponse.ok("data",books,books.size());
+	}
+
 }

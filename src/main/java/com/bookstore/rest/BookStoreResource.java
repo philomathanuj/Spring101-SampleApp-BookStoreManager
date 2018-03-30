@@ -11,7 +11,7 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.Response;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
+import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.RequestBody;
 
 import com.bookstore.RestResponse;
@@ -19,7 +19,7 @@ import com.bookstore.entity.Book;
 import com.bookstore.exception.ServiceException;
 import com.bookstore.service.BookStoreService;
 
-@Service
+@Component
 @Path("/bookstore")
 public class BookStoreResource{
 	
@@ -43,18 +43,21 @@ public class BookStoreResource{
 	@GET
 	@Path("/purchase/view/{id}")
 	@Produces("application/json")
-	public Response viewPurchase(@PathParam(value = "1") int id){
+	public Book viewPurchase(@PathParam(value = "id") Integer id){
 		Book book = null;
 		try {
+			System.out.println(id);
+			System.out.println("book id is above");
 			book = this.bookStoreService.getBookByID(id);
+			System.out.println(book.toString());
 		} catch (ServiceException e) {
-			return RestResponse.notOk("Failure to save item",e.getMessage());
+			return null;
 		}
-		return RestResponse.ok("data",book,1);	
+		return book;	
 	}
 	
 	@GET
-	@Path("/purchase/all")
+	@Path("/purchase/view/all")
 	@Produces("application/json")
 	public Response viewAllPurchases(){
 		List<Book> books = null;

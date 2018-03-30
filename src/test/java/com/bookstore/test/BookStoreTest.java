@@ -33,8 +33,8 @@ public void testAddPurchase(){
 
 @Test
 public void testViewPurchase(){
-	Response response = bookStoreResouce.viewPurchase(1);
-	System.out.println(response.getEntity().toString());
+	Book book = bookStoreResouce.viewPurchase(1);
+	System.out.println(book.toString());
 }
 
 @Test

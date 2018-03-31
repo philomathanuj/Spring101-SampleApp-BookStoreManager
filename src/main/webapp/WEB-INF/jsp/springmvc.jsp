@@ -4,11 +4,18 @@
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
-<table border="2" bgcolor="grey">
+	  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>	
+
+<table class= "table table-striped">
+	<thead>
 	<tr>
-	<th bgcolor="grey">Title</th> <th bgcolor="grey">Category</th> <th bgcolor="grey">Author</th> <th bgcolor="grey">Price</th> <th bgcolor="grey">Copies Left</th> <th bgcolor="grey">Action</th>
+	<th >Title</th> <th >Category</th> <th >Author</th> <th >Price</th> <th >Copies Left</th> <th >Action</th>
 	</tr>
+	</thead>
 	
+	<tbody>
 	
 		<tr>
 			<td>${requestScope.book.title}</td>
@@ -17,4 +24,68 @@
 			<td>${book.price}</td>
 			<td>${book.copiesLeft}</td>
 		</tr>
+			<tr>
+			<td>${requestScope.book.title}</td>
+			<td>${book.category}</td>
+			<td>${book.author}</td>
+			<td>${book.price}</td>
+			<td>${book.copiesLeft}</td>
+		</tr>
+			<tr>
+			<td>${requestScope.book.title}</td>
+			<td>${book.category}</td>
+			<td>${book.author}</td>
+			<td>${book.price}</td>
+			<td>${book.copiesLeft}</td>
+		</tr>
+			<tr>
+			<td>${requestScope.book.title}</td>
+			<td>${book.category}</td>
+			<td>${book.author}</td>
+			<td>${book.price}</td>
+			<td>${book.copiesLeft}</td>
+		</tr>
+			<tr>
+			<td>${requestScope.book.title}</td>
+			<td>${book.category}</td>
+			<td>${book.author}</td>
+			<td>${book.price}</td>
+			<td>${book.copiesLeft}</td>
+		</tr>
+			<tr>
+			<td>${requestScope.book.title}</td>
+			<td>${book.category}</td>
+			<td>${book.author}</td>
+			<td>${book.price}</td>
+			<td>${book.copiesLeft}</td>
+		</tr>
+			<tr>
+			<td>${requestScope.book.title}</td>
+			<td>${book.category}</td>
+			<td>${book.author}</td>
+			<td>${book.price}</td>
+			<td>${book.copiesLeft}</td>
+		</tr>
+			<tr>
+			<td>${requestScope.book.title}</td>
+			<td>${book.category}</td>
+			<td>${book.author}</td>
+			<td>${book.price}</td>
+			<td>${book.copiesLeft}</td>
+		</tr>
+			<tr>
+			<td>${requestScope.book.title}</td>
+			<td>${book.category}</td>
+			<td>${book.author}</td>
+			<td>${book.price}</td>
+			<td>${book.copiesLeft}</td>
+		</tr>
+			<tr>
+			<td>${requestScope.book.title}</td>
+			<td>${book.category}</td>
+			<td>${book.author}</td>
+			<td>${book.price}</td>
+			<td>${book.copiesLeft}</td>
+		</tr>
+		</tbody>
 </table>

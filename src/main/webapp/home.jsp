@@ -10,6 +10,8 @@
 <title>Record a Sale</title>
 <link rel="stylesheet" href="style.css" type="text/css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>	
 <script>
 $(document).ready(function(){
     $("#springrestresultsbutton").click(function(){
@@ -67,25 +69,53 @@ frm.submit();
 <body>
 
 
-<h1>Data Retrieval from plain Servlet Front Controller</h1>
+<h2>Data Retrieval from plain Servlet Front Controller</h2>
 
-<button id = "fc">Get Front Controller Data</button>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-xs-4">
+      <button id = "fc" class="btn btn-primary">Get Front Controller Data</button>
+    </div>
+   </div>
+ </div>
 <div id= "fcresults">
 </div>
-<h1>Data Retrieval from Spring MVC Controller</h1>
-<button id = "springmvc">Get MVC Data Data</button>
+<h2>Data Retrieval from Spring MVC Controller</h2>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-xs-4">
+      <button id = "springmvc" class="btn btn-primary">Get MVC Data Data</button>
+    </div>
+   </div>
+ </div>
+
 <div id= "springmvcresults">
 </div>
 
 
 
-<h1>Data Retrieval from Spring REST Service/REST Controller</h1>
-<button id ="springrestresultsbutton">Get Spirng REST Data</button>
+<h2>Data Retrieval from Spring REST Service/REST Controller</h2>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-xs-4">
+      <button id ="springrestresultsbutton" class="btn btn-primary">Get Spirng REST Data</button>
+    </div>
+   </div>
+ </div>
+
+
 <div id= "springrestresults">
 </div>
 
-<h1>Data Retrieval from Jersey REST Service</h1>
-<button id = "jerseyrestresultsbutton">Get Jersey REST Data</button>
+<h2>Data Retrieval from Jersey REST Service</h2>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-xs-4">
+      <button id = "jerseyrestresultsbutton" class="btn btn-primary">Get Jersey REST Data</button>
+    </div>
+   </div>
+ </div>
+
 <div id= "jerseyrestresults">
 </div>
 

@@ -32,7 +32,6 @@ Partial Title <input type="text" name="partialTitle" />
 </form:form>
 
 
-<c:if test="${recordVisibility=='1'}">
 <table border="2" bgcolor="grey">
 	<tr>
 	<th bgcolor="grey">Title</th> <th bgcolor="grey">Category</th> <th bgcolor="grey">Author</th> <th bgcolor="grey">Price</th> <th bgcolor="grey">Copies Left</th> <th bgcolor="grey">Action</th>
@@ -47,57 +46,22 @@ Partial Title <input type="text" name="partialTitle" />
 			<td>${book.author}</td>
 			<td>${book.price}</td>
 			<td>${book.copiesLeft}</td>
-			
-			<td> 
-				<c:if test="${book.copiesLeft!='0'}">
-					<form:form action="addToCart.action" method="POST">
-					<input type="hidden" name="bookId" value="${book.bookId}">
-					<input type="submit" value="Add to Current Purchase" />
-					</form:form>
-				</c:if>
-		 </td>
 		</tr>
 	</c:forEach>
 
 	
 
 </table>
-</c:if>
 
-<c:if test="${recordVisibility=='0'}"><br /> No Matching Book Found </c:if>
 
 
 <br /> <br /> <br /> <hr />
 
-<form:form method="POST" action="sell.action">
-<c:if test="${recordVisibility=='2'}">
+<form:form method="POST" action="saveBook.act">
 <br/>
  <h3>The following books have been added to the current purchase:</h3> <br/>
-<table border="2" bgcolor="grey">
-	<tr>
-	<th bgcolor="grey">Title</th> <th bgcolor="grey">Category</th> <th bgcolor="grey">Author</th>  <th bgcolor="grey">Copies Purchased</th> <th bgcolor="grey">Total Price</th>
-	</tr>
-	
-	<c:forEach var="lineItem" items="${requestScope.itemList}">
-		<tr>
-			<td>${lineItem.title}</td>
-			<td>${lineItem.category}</td>
-			<td>${lineItem.author}</td>
-			<td>${lineItem.copiesPurchased}</td>
-			<td>${lineItem.totalPrice}</td>
-			
-		</tr>
-	</c:forEach>
-	<tr>
-		<td></td> <td></td>  <td></td>
-		<td>Total Price</td> <td>${requestScope.totalCartPrice}<input type="submit" value="Save" /></td>
-	</tr>
-</table>
-</c:if>
 
 </form:form>
-
-
 
 </body>
 </html>

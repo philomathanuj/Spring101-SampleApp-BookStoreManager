@@ -3,6 +3,7 @@ package com.bookstore.plaincontroller;
 import java.io.IOException;
 
 import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -11,6 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+import org.springframework.web.context.support.SpringBeanAutowiringSupport;
 
 import com.bookstore.entity.Book;
 import com.bookstore.exception.ServiceException;
@@ -19,7 +21,7 @@ import com.bookstore.service.BookStoreService;
 /**
  * Servlet implementation class FrontController
  */
-@Component
+
 public class FrontController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -31,6 +33,16 @@ public class FrontController extends HttpServlet {
     public FrontController() {
         super();
     }
+    
+    public void init(ServletConfig config) {
+        try {
+			super.init(config);
+		} catch (ServletException e) {
+			e.printStackTrace();
+		}
+        SpringBeanAutowiringSupport.processInjectionBasedOnServletContext(this,
+          config.getServletContext());
+      }
 
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
@@ -39,13 +51,14 @@ public class FrontController extends HttpServlet {
 		//response.getWriter().append("Served at: ").append(request.getContextPath());
 		Book book = null;
 		RequestDispatcher rd = null;
+		String target = "home.jsp";
 		String uri = request.getRequestURI();
 		if(uri.endsWith("addPurchase.do")){
 			book = (Book) request.getAttribute("book");
 			try {
 				bookStoreService.addPurchase(book);
 				request.setAttribute("message","Purchase details have been added successfully");
-				rd = request.getRequestDispatcher("/home.jsp");
+				rd = request.getRequestDispatcher(target);
 			} catch (ServiceException e) {
 				request.setAttribute("error","Error Occurred while saving the purchase details");
 				e.printStackTrace();
@@ -54,10 +67,11 @@ public class FrontController extends HttpServlet {
 		else if(uri.endsWith("viewPurchase.do")){
 			Integer bookID = Integer.parseInt(request.getParameter("bookID"));
 			Book bookDetails = null;
+			target = "/WEB-INF/jsp/record.jsp";
 			try {
 				bookDetails = bookStoreService.getBookByID(bookID);
 				request.setAttribute("bookDetails",bookDetails);
-				rd = request.getRequestDispatcher("/viewPurchase.jsp");
+				rd = request.getRequestDispatcher(target);
 			} catch (ServiceException e) {
 				request.setAttribute("error","Error Occurred while fetching purchase details");
 				e.printStackTrace();

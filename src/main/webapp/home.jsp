@@ -6,9 +6,18 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Insert title here</title>
+<link rel="stylesheet" href="style.css" type="text/css">
+<title>Book Store Manager</title>
 </head>
 <body>
+<div class="message">${requestScope.message}</div>
+
+<a href="CreateAssessment.do">Add a purchase</a>
+<br />
+<a href="viewPurchase.do">View Purchase By ID</a>
+<br />
+<a href="viewAllPurchase.do">View All Purchases</a>
+<br />
 
 </body>
 </html>

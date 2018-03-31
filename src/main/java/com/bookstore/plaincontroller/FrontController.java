@@ -67,7 +67,7 @@ public class FrontController extends HttpServlet {
 		else if(uri.endsWith("viewPurchase.do")){
 			Integer bookID = Integer.parseInt(request.getParameter("bookID"));
 			Book bookDetails = null;
-			target = "/WEB-INF/jsp/record.jsp";
+			target = "/WEB-INF/jsp/frontcontroller.jsp";
 			try {
 				bookDetails = bookStoreService.getBookByID(bookID);
 				request.setAttribute("bookDetails",bookDetails);

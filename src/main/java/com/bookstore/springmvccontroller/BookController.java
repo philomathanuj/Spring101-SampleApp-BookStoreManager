@@ -35,7 +35,7 @@ public class BookController {
 			e.printStackTrace();
 		}
 		model.addAttribute("book", book);
-		return "record";
+		return "springmvc";
 
 	}
 
@@ -52,7 +52,7 @@ public class BookController {
 		} catch (ServiceException e) {
 			e.printStackTrace();
 		}
-		return "record";
+		return "springmvc";
 	}
 
 }

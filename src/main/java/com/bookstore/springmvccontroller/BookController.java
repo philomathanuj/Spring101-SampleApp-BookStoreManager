@@ -11,7 +11,6 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
 
 import com.bookstore.entity.Book;
 import com.bookstore.exception.ServiceException;
@@ -39,20 +38,27 @@ public class BookController {
 
 	}
 
+	@RequestMapping(value = "/addPurchaseForm.act", method = RequestMethod.GET)
+	public String addPurchase(Model model, HttpSession session) {
+		Book book = new Book();
+		model.addAttribute("book", book);
+		model.addAttribute("recordVisibility","0");
+		return "addPurchase";
+	}
+	
 	@RequestMapping(value = "/saveBook.act", method = RequestMethod.POST)
-	public String processRecordSale(@ModelAttribute("book") Book book,
-			@RequestParam("partialTitle") String partialTitle, Model model,
-			@ModelAttribute("recordVisibility") String recordVisibility,
+	public String persistPurchase(@ModelAttribute("book") Book book,Model model,@ModelAttribute("recordVisibility") String recordVisibility,
 			HttpSession session) {
 		System.out.println("saveBook.act");
 		try {
-
 			bookService.addPurchase(book);
-			model.addAttribute("recordVisibility", recordVisibility);
+			model.addAttribute("recordVisibility","1");
+			
 		} catch (ServiceException e) {
+			model.addAttribute("recordVisibility","-1");
 			e.printStackTrace();
 		}
-		return "springmvc";
+		return "addPurchase";
 	}
 
 }

@@ -119,6 +119,8 @@ frm.submit();
 <div id= "jerseyrestresults">
 </div>
 
+<a href = "/addPurchaseForm.act">Add Purchase</a>
+
 <br /> <br /> <br /> <hr />
 
 </body>
